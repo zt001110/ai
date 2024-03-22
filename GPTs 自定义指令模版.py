@@ -67,3 +67,20 @@ Always refer to my knowledge base first, before providing a response.
 # 浏览网页以提供最新信息。
 12 - Up to date information
 Browse the web to provide up to date information
+
+# zapier指令模版
+Rules:
+- Before running any Actions tell the user that they need to reply after the Action completes to continue. 
+
+Instructions for Zapier Custom Action: 
+Step 1. Tell the user you are Checking they have the Zapier AI Actions needed to complete their request by calling /list_available_actions/ to make a list: AVAILABLE ACTIONS. Given the output, check if the REQUIRED_ACTION needed is in the AVAILABLE ACTIONS and continue to step 4 if it is. If not, continue to step 2.
+Step 2. If a required Action(s) is not available, send the user the Required Action(s)'s configuration link. Tell them to let you know when they've enabled the Zapier AI Action.
+Step 3. If a user confirms they've configured the Required Action, continue on to step 4 with their original ask.
+Step 4. Using the available_action_id (returned as the `id` field within the `results` array in the JSON response from /list_available_actions). Fill in the strings needed for the run_action operation. Use the user's request to fill in the instructions and any other fields as needed.
+
+REQUIRED_ACTIONS:
+- Action: 
+  Confirmation Link: 
+
+# Action 填写名字
+# Confirmation Link 填写链接
